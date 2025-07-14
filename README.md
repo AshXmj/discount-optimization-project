@@ -8,18 +8,32 @@ This project focuses on predicting the effectiveness of discounts in driving sal
 Offering discounts is a common tactic to increase sales, but excessive or poorly targeted discounts can reduce overall profitability. This project builds predictive models to analyze discount impact and guide better discount decisions.
 
 ## 🗂️ Dataset
-- **Source**: Internal sales report (`Sales reportcsv.csv`)
+- **Source**: Proprietary sales dataset from a business partner (`Sales reportcsv.csv`)
 - **Key features**: 
-  - Item prices
-  - Discount percentages
-  - Sales values
-  - Profit margins
-  - Other item or transaction attributes
-
+  - Bill No
+  - BillDate
+  - Name
+  - Item
+  - ItemHSN
+  - TaxConfName
+  - Mrp
+  - Rate
+  - LineDiscountPercent
+  - LineSalesAccountVal
+  - Quantity
+  - ItemWiseDiscountsTotal
+  - LineItemTax
 ## ⚙️ Methodology
+- **Exploratory Data Analysis (EDA)**:
+  - Checked data structure, types, and distributions
+  - Identified missing values and basic patterns
 - **Data preprocessing**: 
   - Handling missing values
+  - Dropped duplicate records
   - Feature engineering on discount-related columns
+  - Handled missing values using median imputation
+  - Applied label encoding to categorical columns (`Name`, `Item`, `TaxConfName`)
+  - Standardized numerical features using StandardScaler
 - **Modeling**: 
   - Linear Regression
   - Decision Tree Regressor
@@ -33,11 +47,13 @@ Offering discounts is a common tactic to increase sales, but excessive or poorly
 
 ## 📊 Results
 - Regression models were trained and evaluated to predict profit outcomes based on discount strategies.
-- Feature importance analysis provided insights on which features influence profit the most.
-- Visualizations demonstrated error distributions and model comparisons.
-
+- Analysis indicated that offering an **optimal discount range of approximately 7.3%** maximizes profitability while avoiding unnecessary revenue loss.
+- Feature importance analysis revealed that `LineDiscountPercent`, `LineSalesAccountVal`, and `ItemWiseDiscountsTotal` are key factors affecting profit.
+- Visualizations demonstrated error distributions, model comparisons, and the effect of varying discount rates on predicted profit.
+  
 ## ✅ Conclusion
-The models offer a data-driven approach to estimate how discounts impact profitability, supporting strategic discount planning and customer targeting.
+This project demonstrates a data-driven approach to evaluating and optimizing discount strategies using regression modeling and detailed feature analysis. By identifying an optimal discount range of approximately 7.3%, the analysis helps maximize profitability without over-discounting. The combination of EDA, careful preprocessing, and multiple regression models allowed for a thorough understanding of how different features, especially discount percentage and sales value, impact overall profit. These findings provide actionable insights for businesses to design more effective discount campaigns, improve pricing strategies, and drive sustainable revenue growth.
+
 
 ## 💻 Tech Stack
 - Python (Pandas, NumPy, Scikit-learn, Seaborn, Matplotlib)
